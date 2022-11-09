@@ -1,0 +1,38 @@
+<div class="main-div">
+  <mat-card align="center">
+    <mat-card-title style="margin-top: 15px; margin-bottom: 30px"
+      >Add Wallet Address</mat-card-title
+    >
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="emailFormControl" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>Wallet Address</mat-label>
+        <input matInput [formControl]="walletAddressFormControl" />
+      </mat-form-field>
+    </p>
+    <mat-card-actions align="end">
+      <button
+        mat-button
+        color="primary"
+        class="check-button"
+        (click)="submit()"
+        style="margin-right: 10px; margin-bottom: 15px"
+      >
+        <mat-icon>check</mat-icon>
+      </button>
+      <button
+        mat-button
+        color="primary"
+        class="cancel-button"
+        style="margin-right: 10px; margin-bottom: 15px"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

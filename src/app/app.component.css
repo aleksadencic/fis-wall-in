@@ -1,0 +1,11 @@
+mat-toolbar {
+  background: #082d59;
+  color: white;
+  margin: 0px;
+}
+
+mat-sidenav {
+  border-right: none;
+  color: white;
+  text-align: center;
+}

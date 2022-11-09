@@ -1,0 +1,16 @@
+<div class="main-div">
+  <mat-card class="mat-card-grid" align="center" *ngIf="isAdmin">
+    <mat-card-title style="margin-top: 15px; margin-bottom: 30px"
+      >Users</mat-card-title
+    >
+    <ag-grid-angular
+      class="ag-theme-balham ag-theme-alpine"
+      [gridOptions]="gridOptions"
+    ></ag-grid-angular>
+    <mat-card-actions align="end">
+      <button mat-button color="primary" (click)="add()">Add</button>
+      <button mat-button color="primary" (click)="edit()">Edit</button>
+      <button mat-button color="primary" (click)="delete()">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
