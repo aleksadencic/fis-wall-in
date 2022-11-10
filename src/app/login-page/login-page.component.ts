@@ -14,6 +14,11 @@ import {
   setAuthority,
   transfer,
 } from '@solana/spl-token';
+import {
+  getParsedNftAccountsByOwner,
+  isValidSolanaAddress,
+  createConnectionConfig,
+} from '@nfteyez/sol-rayz';
 
 @Component({
   selector: 'app-login-page',
@@ -28,6 +33,8 @@ export class LoginPageComponent implements OnInit {
   fromTokenAccount: any;
   toTokenAccount: any;
   signature: any;
+  walletAddress: any;
+  collectibles: any;
 
   constructor(private solWalletS: SolWalletsService) {}
 
@@ -40,6 +47,8 @@ export class LoginPageComponent implements OnInit {
       this.fromWallet,
       this.fromWallet.publicKey
     );
+    // this.collectibles = await this.getAllNftData();
+    // console.log(this.collectibles);
   }
 
   openWallet() {
@@ -189,16 +198,35 @@ export class LoginPageComponent implements OnInit {
 
   /* ----------------------------------------------------------------------------------- */
 
-  // async getTheOwnerAddressOfPhantomWallet() {
-  //   //check solana on window. This is useful to fetch address of your wallet.
-  //   getProvider = () => {
-  //     if ('solana' in window) {
-  //       const provider = window.solana;
-  //       if (provider.isPhantom) {
-  //         return provider;
-  //       }
-  //     }
-  //   };
+  async getPhantomWalletProvider() {
+    if ('solana' in window) {
+      const provider = (window as any).solana;
+      if (provider.isPhantom) {
+        return provider;
+      }
+    }
+  }
+
+  // async getAllNftData() {
+  //   try {
+  //     const resp = await (window as any)?.solana?.connect();
+  //     const key = resp.publicKey.toString();
+  //     console.log(key);
+  //     // const result = isValidSolanaAddress(key);
+  //     // console.log('result', result);
+
+  //     // let details = await getParsedNftAccountsByOwner({
+  //     //   publicAddress: key,
+  //     //   connection: this.connection,
+  //     //   sanitize: true,
+  //     //   // serialization: true,
+  //     // });
+  //     // console.log('wallet data', details);
+  //     return 'aa';
+  //   } catch (error) {
+  //     console.log(error);
+  //     return null;
+  //   }
   // }
 
   disconnect() {

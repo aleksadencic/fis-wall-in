@@ -23,7 +23,9 @@
             "jayson/lib/client/browser",
             "rpc-websockets",
             "secp256k1",
-            "tweetnacl"
+            "tweetnacl",
+            "angular-slickgrid",
+            "stream"
           ],
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
